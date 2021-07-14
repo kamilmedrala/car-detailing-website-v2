@@ -16,9 +16,6 @@ function getPosts(token) {
     dataType: "jsonp",
     success: function (response) {
       let post = response.data;
-      // console.log(dane[0].caption);
-      // console.log(dane[0].media_url);
-      // zdjecia[0].media_url
       for (let i = 0; i < 6; i++) {
         let PostElement = document.createElement("div");
         PostElement.className = "gallery__insta-image";
@@ -26,11 +23,6 @@ function getPosts(token) {
           "url" + "(" + post[i].media_url + ")";
         PostElement.innerHTML = "<p>" + post[i].caption + "</p>";
         document.getElementById("id_gallery__insta").appendChild(PostElement);
-
-        // let postElementCaption=document.createElement('p');
-        // postElementCaption.className = "gallery__insta-caption";
-        // let postElements = document.getElementsByClassName("gallery__insta-image")
-        // postElements[i].appendChild(postElementCaption);
       }
     },
   });
@@ -39,7 +31,6 @@ function getPosts(token) {
 window.onload = function () {
   var NextToShow = document.getElementsByClassName("gallery__insta-image"); //used by images
   var delay = 0;
-  var j = 0;
   var controller = new ScrollMagic.Controller();
 
   //posts display animation
@@ -47,8 +38,8 @@ window.onload = function () {
     triggerElement: NextToShow,
   })
     .on("start", function fadeDelay() {
-      for (j = 0; j < 6; j++) {
-        NextToShow[j].style.animationDelay = delay + "ms";
+      for (let i = 0; i < 6; i++) {
+        NextToShow[i].style.animationDelay = delay + "ms";
         delay = delay + 50;
       }
       delay = 0;
