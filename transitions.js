@@ -21,8 +21,8 @@ for (let i = 2; i < 5; i++) {
     logo.style.height = "50px";
     logo.style.margin = " 5px 0 0 0 ";
 
-    setTimeout(() => {
+    PageSlider.addEventListener("animationend", function () {
       window.location.href = target;
-    }, 300);
+    }, false);
   });
 }

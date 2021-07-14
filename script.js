@@ -28,6 +28,7 @@ window.onload = function () {
       //navbar about redirect delay if from other page
       if ( window.location.href.indexOf("about")>0 && wrapMain.style.height == "auto") {
         window.location.href = "./#about";
+        console.log("erere");
       }
       next();
     });
