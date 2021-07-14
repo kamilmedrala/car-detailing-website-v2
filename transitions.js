@@ -1,9 +1,9 @@
 const anchors = document.querySelectorAll("a");
 const PageSlider = document.querySelector(".page__slider");
 
-setTimeout(() => {
+PageSlider.addEventListener("animationend", function () {
   PageSlider.classList.remove("is-ending");
-}, 400);
+}, false);
 
 for (let i = 2; i < 5; i++) {
   const anchor = anchors[i];
