@@ -1,18 +1,11 @@
-// window.onbeforeunload = function () {
-//   document.querySelector('html').style.scrollBehavior = 'unset';
-//   window.scrollTo(0, 0);
-// };
-
 // before and on load animations
 $(".logo").hide();
 $(".logo").fadeIn(200);
 $(".wrapper").hide();
 $(".wrapper").fadeIn(400);
 $(".navbar").hide();
-// $("body").css('overflow-y', 'hidden');
 $(".wrapper__main").css("height", "0");
-// $("main").hide();
-// $(".loader").hide();
+
 const wrapMain = document.querySelector(".wrapper__main");
 
 window.onload = function () {
@@ -33,12 +26,9 @@ window.onload = function () {
       $(this).css("height", "auto");
 
       //navbar about redirect delay if from other page
-      if (
-        window.location == "http://127.0.0.1:5500/#about" &&
-        wrapMain.style.height == "auto"
-      ) {
-        window.location.href = "http://127.0.0.1:5500/#about";
-        console.log("about jest tuuu");
+      if ( window.location.href.indexOf("about") && wrapMain.style.height == "auto") {
+        window.location.href = "/#about";
+        console.log("erere");
       }
       next();
     });
