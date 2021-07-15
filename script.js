@@ -169,7 +169,7 @@ var ComparisonScene = new ScrollMagic.Scene({
   .reverse(false)
   .addTo(controller);
 
-//comparison slider
+//comparison slider state
 
 var inside = false;
 var SliderSection = document.getElementById("slider__section");
@@ -182,3 +182,13 @@ SliderSection.addEventListener("mouseleave", function () {
   // sliding();
   inside = false;
 });
+
+
+//buttons on offer cards direct to oferta.html
+
+// var OfferButton = document.getElementsByClassName("card__button");
+// for (let i = 0; i < 3; i++) {
+//   OfferButton[i].addEventListener('click', function () {
+//     window.location.href='./oferta.html'
+//   })
+// }
