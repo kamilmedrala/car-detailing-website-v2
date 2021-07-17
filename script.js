@@ -4,9 +4,8 @@ $(".logo").fadeIn(200);
 $(".wrapper").hide();
 $(".wrapper").fadeIn(400);
 $(".navbar").hide();
-$(".wrapper__main").css("height", "0");
 
-const wrapMain = document.querySelector(".wrapper__main");
+const wrapMain = document.querySelector("main");
 
 window.onload = function () {
   var LoadTime =
@@ -20,15 +19,15 @@ window.onload = function () {
   $(".navbar-container").delay(0).show();
   $(".navbar").delay(1200).fadeIn();
 
-  $(".wrapper__main")
-    .delay(1600)
+  $("main")
+    .delay(1500)
     .queue(function (next) {
       $(this).css("height", "auto");
+      $("footer").css("height", "50px");
 
       //navbar about redirect delay if from other page
       if ( window.location.href.indexOf("about")>0 && wrapMain.style.height == "auto") {
         window.location.href = "./#about";
-        console.log("erere");
       }
       next();
     });
@@ -89,10 +88,16 @@ window.addEventListener("scroll", () => {
   }
 
   //header parallax
-  let bck = document.querySelector("header");
-  let BckPosition = 50 + window.scrollY / 10 + "%";
+  const bck = document.querySelector("header");
+  if(screen.width<=600){
+    var BckPosition = 50 - window.scrollY / 10 + "%";
+  }
+  else{
 
-  bck.style.backgroundPositionY = BckPosition;
+    var BckPosition = 50 + window.scrollY / 10 + "%";
+  }   
+    bck.style.backgroundPositionY = BckPosition;
+
 });
 
 //other
@@ -103,7 +108,7 @@ var controller = new ScrollMagic.Controller();
 
 //logos
 var LogoScene = new ScrollMagic.Scene({
-  triggerElement: ".toShow",
+  triggerElement: ".logos",
   offset: -170,
 })
   .on("start", function fadeDelay() {
@@ -113,16 +118,17 @@ var LogoScene = new ScrollMagic.Scene({
     }
     delay = 0;
   })
-  .setClassToggle(".toShow img", "show")
+  .setClassToggle(".logos img", "show")
   .reverse(false)
   .addTo(controller);
 
-//slide on fixed
+//slide on gallery
+
 var SlideScene = new ScrollMagic.Scene({
-  triggerElement: ".toSlide",
-  offset: -170,
+  triggerElement: ".gallery",
+  offset: -50,
 })
-  .setClassToggle(".toSlide div", "sidebox-animRight")
+  .setClassToggle(".gallery .sidetext", "sidebox-animRight")
   .reverse(false)
   .addTo(controller);
 
@@ -142,53 +148,3 @@ var OfferScene = new ScrollMagic.Scene({
   .setClassToggle(".offer .card", "show")
   .reverse(false)
   .addTo(controller);
-
-//slide on comparison slider
-
-var slide = document.getElementById("slide");
-
-var ComparisonScene = new ScrollMagic.Scene({
-  triggerElement: ".slider__container",
-  offset: -100,
-})
-  .on("start", function whenAnimEnd() {
-    slide.addEventListener("animationend", function sliding() {
-      slide.style.width = 50 + "%";
-      window.addEventListener("mousemove", (e) => {
-        if (inside == true) {
-          let x = e.clientX;
-          slide.style.width = x + "px";
-        }
-        if (inside == false) {
-          slide.style.width = 50 + "%";
-        }
-      });
-    });
-  })
-  .setClassToggle(".slider__container .slider-left", "sidebox-animLeft")
-  .reverse(false)
-  .addTo(controller);
-
-//comparison slider state
-
-var inside = false;
-var SliderSection = document.getElementById("slider__section");
-SliderSection.addEventListener("mouseenter", function () {
-  // sliding();
-  inside = true;
-});
-
-SliderSection.addEventListener("mouseleave", function () {
-  // sliding();
-  inside = false;
-});
-
-
-//buttons on offer cards direct to oferta.html
-
-// var OfferButton = document.getElementsByClassName("card__button");
-// for (let i = 0; i < 3; i++) {
-//   OfferButton[i].addEventListener('click', function () {
-//     window.location.href='./oferta.html'
-//   })
-// }

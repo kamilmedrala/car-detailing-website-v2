@@ -5,7 +5,7 @@ PageSlider.addEventListener("animationend", function () {
   PageSlider.classList.remove("is-ending");
 }, false);
 
-for (let i = 2; i < 9; i++) {
+for (let i = 2; i < anchors.length; i++) {
   const anchor = anchors[i];
   if(i!=5){   //to skip anchor for calling
     anchor.addEventListener("click", (e) => {
