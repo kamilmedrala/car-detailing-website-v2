@@ -138,6 +138,7 @@ body {
   object-fit: contain;
   background-color: rgba(29, 29, 29, 0);
   transition: background-color 0.2s ease-in-out, height 0.2s ease-in-out;
+  will-change: height;
 }
 
 .logo {
@@ -148,6 +149,7 @@ body {
 .logo-image {
   max-height: inherit;
   transition: 0.2s ease-in-out;
+  will-change: height;
 }
 
 .navbar ul {
@@ -763,6 +765,7 @@ footer p {
     background-size: auto 120vh;
     align-items: flex-end;
     height: 100vh;
+    will-change: background-position;
   }
 
   .header-main {
