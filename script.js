@@ -80,11 +80,11 @@ window.addEventListener("scroll", () => {
   if (WindowScroll) {
     nav.style.height = "55px";
     logo.style.height = "50px";
-    logo.style.margin = " 5px 0 0 0 ";
+    // logo.style.margin = " 5px 0 0 0 ";
   } else {
     nav.style.height = "90px";
     logo.style.height = "80px";
-    logo.style.margin = "0";
+    // logo.style.margin = "0";
   }
 
   //header parallax
