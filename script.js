@@ -8,9 +8,7 @@ $(".navbar").hide();
 const wrapMain = document.querySelector("main");
 
 window.onload = function () {
-  var LoadTime =
-    window.performance.timing.domContentLoadedEventEnd -
-    window.performance.timing.navigationStart;
+  var LoadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
 
   console.log("Page load time is " + LoadTime);
 
@@ -26,7 +24,7 @@ window.onload = function () {
       $("footer").css("height", "50px");
 
       //navbar about redirect delay if from other page
-      if ( window.location.href.indexOf("about")>0 && wrapMain.style.height == "auto") {
+      if (window.location.href.indexOf("about") > 0 && wrapMain.style.height == "auto") {
         window.location.href = "./#about";
       }
       next();
@@ -35,37 +33,31 @@ window.onload = function () {
   $(".list-container ul").delay(0).hide();
   $(".list-container").delay().hide();
   $(".list-container").delay(1500).slideDown("fast");
+  myLoop();
 };
 
 //listing under header h1
 
-myLoop();
-
-var c = document.getElementsByClassName("secondary");
-
+var list = document.getElementById("list");
 var i = 0;
 
 function myLoop() {
-  setTimeout(function () {
-    c[i].style.display = "block";
-    c[i].style.opacity = 1;
-    $(".list-container ul").delay(0).fadeIn(200);
+  setInterval(function () {
+    $("#list").delay(0).fadeIn(200);
+    list.firstElementChild.style.opacity = 1;
 
-    if (i > 0) {
-      c[i - 1].style.display = "none";
-    } else {
-      c[4].style.display = "none";
-    }
-    $(".list-container ul").delay(1500).fadeOut(200);
-    i++;
-    if (i < 5) {
-      myLoop();
-    }
+    setTimeout(function () {
+      list.firstElementChild.style.opacity = 0;
+    }, 1700);
+
+    setTimeout(function () {
+      list.appendChild(list.firstElementChild);
+    }, 2000),
+      i++;
     if (i == 5) {
       i = 0;
-      myLoop();
     }
-  }, 2000);
+  }, 2100);
 }
 
 //on scroll animations
@@ -74,30 +66,30 @@ function myLoop() {
 window.addEventListener("scroll", () => {
   let nav = document.querySelector(".navbar");
   let logo = document.querySelector(".logo-image");
+  let navelements = document.querySelectorAll("#navbar-element");
   let WindowScroll = window.scrollY > 100;
 
   nav.classList.toggle("scrolling-active", WindowScroll);
   if (WindowScroll) {
-    nav.style.height = "55px";
-    logo.style.height = "50px";
-    // logo.style.margin = " 5px 0 0 0 ";
+    nav.style.transform = "translateY(-30px)";
+    logo.style.transform = "scale(0.7)";
+    navelements[0].style.transform = "translateY(15px)";
+    navelements[1].style.transform = "translateY(15px)";
   } else {
-    nav.style.height = "90px";
-    logo.style.height = "80px";
-    // logo.style.margin = "0";
+    nav.style.transform = "translateY(0)";
+    logo.style.transform = "scale(1)";
+    navelements[0].style.transform = "translateY(0)";
+    navelements[1].style.transform = "translateY(0)";
   }
 
   //header parallax
   const bck = document.querySelector("header");
-  if(screen.width<=600){
+  if (screen.width <= 600) {
     var BckPosition = 50 - window.scrollY / 10 + "%";
-  }
-  else{
-
+  } else {
     var BckPosition = 50 + window.scrollY / 10 + "%";
-  }   
-    bck.style.backgroundPositionY = BckPosition;
-
+  }
+  bck.style.backgroundPositionY = BckPosition;
 });
 
 //other

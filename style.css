@@ -56,16 +56,6 @@
   }
 }
 
-@keyframes slideFromRight {
-  from {
-    width: 0;
-  }
-  to {
-    width: 50vw;
-    clip-path: polygon(5% 0%, 101% 0%, 101% 101%, 0% 101%);
-  }
-}
-
 html {
   scroll-behavior: smooth;
   /* overflow-y: scroll; */
@@ -94,7 +84,7 @@ html {
 
 body {
   width: 100vw;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   background-color: rgb(25, 25, 25);
   overflow: overlay;
 
@@ -126,7 +116,8 @@ body {
 }
 
 .scrolling-active {
-  background-color: rgba(29, 29, 29, 1) !important;
+  background-color: var(--bck-main) !important;
+  box-shadow: 0 0 10px rgba(9, 9, 9, 0.8) ;
 }
 
 .navbar {
@@ -137,25 +128,27 @@ body {
   height: 90px;
   object-fit: contain;
   background-color: rgba(29, 29, 29, 0);
-  transition: background-color 0.2s ease-in-out, height 0.2s ease-in-out;
-  will-change: height;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s;
 }
 
 .logo {
   max-height: 80px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .logo-image {
   max-height: inherit;
   transition: 0.2s ease-in-out;
-  will-change: height;
 }
 
 .navbar ul {
   display: flex;
   list-style: none;
   text-align: center;
+}
+
+#navbar-element{
+  transition: transform 0.2s ease-in-out;
 }
 
 .navbar-anchor {
@@ -197,8 +190,6 @@ header {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: background-position 0.05s;
-
 }
 
 .header-main {
@@ -231,6 +222,7 @@ header {
   width: auto;
   height: 40px;
   opacity: 0.8;
+  overflow: hidden;
 }
 
 .list-container ul {
@@ -239,8 +231,9 @@ header {
   font-weight: lighter;
 }
 .list-container ul li {
-  display: none;
-  transition: 1s;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 main {
@@ -257,7 +250,6 @@ section {
   width: 70vw;
   margin: 70px auto;
   color: var(--text-main);
-  text-align: justify;
   font-size: 18px;
   font-weight: lighter;
 }
@@ -355,10 +347,18 @@ section {
   align-items: center;
   flex-shrink: 0;
   float: right;
-  width: 0;
+  width: 50%;
   height: 100%;
   background-color: rgb(29, 29, 29, 0.7);
   backdrop-filter: blur(10px);
+  overflow: hidden;
+  clip-path: polygon(
+    100% 0%, 
+    101% 0%,
+    101% 101%,
+    100% 101%
+    );
+    transition: clip-path 0.6s;
 }
 
 .gallery .sidetext .card__button{
@@ -368,7 +368,12 @@ section {
 }
 
 .sidebox-animRight {
-  animation: slideFromRight 0.6s ease-in-out forwards;
+  clip-path: polygon(
+   5% 0%, 
+   101% 0%,
+   101% 101%,
+   0% 101%
+   )!important;
 }
 
 .arrows {
@@ -653,7 +658,7 @@ section {
 .contact__main-content {
   display: flex;
   justify-content: space-around;
-  width: 70%;
+  width: 80%;
   padding: 15px;
 }
 
@@ -737,6 +742,7 @@ footer p {
 
   .logo {
     z-index: 5;
+    margin-top: 5px;
   }
 
   .navbar {
@@ -765,7 +771,6 @@ footer p {
     background-size: auto 120vh;
     align-items: flex-end;
     height: 100vh;
-    will-change: background-position;
   }
 
   .header-main {
@@ -815,7 +820,6 @@ footer p {
   }
 
   .sidebox-animRight {
-    animation: none;
     clip-path: polygon(0% 0%, 101% 10%, 101% 101%, 0% 101%) !important;
   }
 
