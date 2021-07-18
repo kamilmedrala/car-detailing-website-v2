@@ -28,6 +28,7 @@ for (let i = 2; i < anchors.length; i++) {
       logo.style.transform = "scale(0.7)";
       navelements[0].style.transform = "translateY(15px)";
       navelements[1].style.transform = "translateY(15px)";
+      navelements[2].style.transform = "translateY(15px)";
 
       PageSlider.addEventListener(
         "animationend",
@@ -39,3 +40,11 @@ for (let i = 2; i < anchors.length; i++) {
     });
   }
 }
+
+(function () {
+  window.onpageshow = function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  };
+})();

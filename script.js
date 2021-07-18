@@ -75,21 +75,20 @@ window.addEventListener("scroll", () => {
     logo.style.transform = "scale(0.7)";
     navelements[0].style.transform = "translateY(15px)";
     navelements[1].style.transform = "translateY(15px)";
+    navelements[2].style.transform = "translateY(15px)";
   } else {
     nav.style.transform = "translateY(0)";
     logo.style.transform = "scale(1)";
     navelements[0].style.transform = "translateY(0)";
     navelements[1].style.transform = "translateY(0)";
+    navelements[2].style.transform = "translateY(0)";
   }
 
   //header parallax
-  const bck = document.querySelector("header");
-  if (screen.width <= 600) {
-    var BckPosition = 50 - window.scrollY / 10 + "%";
-  } else {
-    var BckPosition = 50 + window.scrollY / 10 + "%";
-  }
-  bck.style.backgroundPositionY = BckPosition;
+  const bck = document.querySelector(".header-bck img");
+  var BckPosition = window.scrollY / 20 + "%";
+
+  bck.style.transform = "translateY(" + BckPosition + ")";
 });
 
 //other
