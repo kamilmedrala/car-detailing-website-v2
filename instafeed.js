@@ -1,3 +1,5 @@
+const amount = 9;
+
 $.ajax({
   url: "./data.json",
   type: "GET",
@@ -16,7 +18,7 @@ function getPosts(token) {
     dataType: "jsonp",
     success: function (response) {
       let post = response.data;
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < amount; i++) {
         let PostElement = document.createElement("div");
         PostElement.className = "gallery__insta-image show";
         PostElement.style.backgroundImage =
@@ -31,7 +33,7 @@ var NextToShow = document.getElementsByClassName("show");
 var delay = 0;
 
 window.onload = function () {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < amount; i++) {
       NextToShow[i].style.animationDelay = delay + "ms";
       delay = delay + 50;
     }

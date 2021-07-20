@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 @keyframes slideRight {
@@ -84,9 +85,9 @@ html {
 
 body {
   width: 100vw;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   background-color: rgb(25, 25, 25);
   overflow: overlay;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   --text-main: rgb(220, 220, 220);
   --text-gold: rgb(211, 176, 89);
@@ -199,9 +200,11 @@ header {
 }
 
 .header-bck img{
+  top: 0;
   object-fit: cover;
   width: 100%;
   height: 100%;
+  will-change: transform;
 }
 
 .header-bck::after{
@@ -756,6 +759,15 @@ footer p {
 /* MOBILE VIEW   */
 
 @media only screen and (max-device-width: 600px) {
+
+  *{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  html{
+    -webkit-overflow-scrolling: touch;
+  }
+  
   @keyframes slideTop {
     from {
       clip-path: polygon(0% 100%, 0% 101%, 101% 101%, 101% 101%);
@@ -769,7 +781,7 @@ footer p {
     z-index: 5;
     margin-top: 5px;
   }
-
+  
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -797,7 +809,6 @@ footer p {
 
   .navbar-anchor {
     margin-top: 50px;
-    /* border: 2px solid black; */
     font-size: 20px;
     line-height: 50px;
   }
@@ -882,23 +893,14 @@ footer p {
     left: -12.5%;
   }
 
-  .page-container.offer__page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-  }
+  
 
-  .page-container.offer__page h1 {
-    font-size: 40px;
-    font-weight: lighter;
-    width: 90%;
-    padding: 5px;
-    color: var(--text-main);
+  .page-container.offer__page {
+    overflow-y: visible;
   }
 
   .page-container.offer__page ul {
-    width: 80%;
+    min-width: 300px;
   }
 
   .page-container.offer__page ul li {
@@ -919,6 +921,13 @@ footer p {
     width: 80%;
     height: 50vh;
     margin-top: 50px;
+  }
+
+  .offer>a{
+    margin-top: 50px;
+    height: 40px;
+    width: 200px;
+    text-decoration: none;
   }
 
   .page-container.gallery__page {
@@ -995,9 +1004,9 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 50px);
-    width: 100vw;
+    min-height: 100vh;
     backdrop-filter: none;
+    min-height: 100%;
   }
 
   .page-container {
@@ -1006,7 +1015,7 @@ footer p {
     height: 100%;
     width: 90%;
     padding-top: 60px;
-    margin: 50px;
+    margin: 0;
     background-color: var(--bck-main);
   }
 }
