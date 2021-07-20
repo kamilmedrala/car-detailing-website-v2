@@ -528,6 +528,10 @@ section {
   width: 70vw;
 }
 
+.offer>a{
+display: none;
+}
+
 .offer .card {
   display: flex;
   flex-direction: column;
