@@ -928,6 +928,7 @@ footer p {
   }
 
   .offer>a{
+    display: flex;
     margin-top: 50px;
     height: 40px;
     width: 200px;
