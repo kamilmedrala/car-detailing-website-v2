@@ -89,11 +89,11 @@ window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
   var BckPosition = window.scrollY / 20 + "%";
 
-  bck.style.transform = "translateY(" + BckPosition + ")";
+  // bck.style.transform = "translateY(" + BckPosition + ")";
   bck.style.webkitTransform = "translateY(" + BckPosition + ")";
 
   if (screen.width <= 600) {
-    header.style.height=window.innerHeight;
+    header.style.height=window.innerHeight + "px";
   }
 });
 
