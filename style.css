@@ -898,9 +898,9 @@ footer p {
   }
 
   
-
-  .page-container.offer__page {
-    overflow-y: visible;
+  .page-container.offer__page h1{
+    width: 100%;
+    text-align: center;
   }
 
   .page-container.offer__page ul {
@@ -908,7 +908,7 @@ footer p {
   }
 
   .page-container.offer__page ul li {
-    /* width: 80%; */
+    width: auto;
     height: 50px;
     color: var(--text-main);
     /* text-align: justify; */
@@ -994,6 +994,12 @@ footer p {
   .contact .contact__main {
     width: 100vw;
     height: 50vh;
+    justify-content: space-around;
+  }
+
+  .contact h1{
+    width: 100%;
+    text-align: center;
   }
 
   .contact__main-content .socials img:hover {
@@ -1009,18 +1015,13 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: auto;
     backdrop-filter: none;
-    min-height: 100%;
   }
 
   .page-container {
     min-width: 100% !important;
-    min-height: 100% !important;
-    height: 100%;
-    width: 90%;
     padding-top: 60px;
     margin: 0;
-    background-color: var(--bck-main);
   }
 }

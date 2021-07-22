@@ -86,9 +86,15 @@ window.addEventListener("scroll", () => {
 
   //header parallax
   const bck = document.querySelector(".header-bck img");
+  const header = document.querySelector("header");
   var BckPosition = window.scrollY / 20 + "%";
 
   bck.style.transform = "translateY(" + BckPosition + ")";
+  bck.style.webkitTransform = "translateY(" + BckPosition + ")";
+
+  if (screen.width <= 600) {
+    header.style.height=window.innerHeight;
+  }
 });
 
 //other
