@@ -9,9 +9,12 @@ const wrapMain = document.querySelector("main");
 
 window.onload = function () {
   var LoadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+  const header = document.querySelector("header");
 
   console.log("Page load time is " + LoadTime);
-
+  if (screen.width <= 600) {
+    header.style.height=window.innerHeight + "px";
+  }
   $(".loader").delay(500).fadeOut(600);
   $(".header-main").addClass("sidebox-anim");
   $(".navbar-container").delay(0).show();
@@ -86,15 +89,11 @@ window.addEventListener("scroll", () => {
 
   //header parallax
   const bck = document.querySelector(".header-bck img");
-  const header = document.querySelector("header");
   var BckPosition = window.scrollY / 20 + "%";
-
+  
   // bck.style.transform = "translateY(" + BckPosition + ")";
   bck.style.webkitTransform = "translateY(" + BckPosition + ")";
-
-  if (screen.width <= 600) {
-    header.style.height=window.innerHeight + "px";
-  }
+  
 });
 
 //other
