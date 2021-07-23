@@ -1,5 +1,4 @@
 // before and on load animations
-window.scrollTo(0,1);
 
 $(".logo").hide();
 $(".logo").fadeIn(200);
@@ -11,7 +10,6 @@ window.onload = function () {
   var LoadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
   var wrapMain = document.querySelector("main");
   var header = document.querySelector("header");
-  var executed = false;
 
   if (screen.width <= 600) {
     header.style.height = window.innerHeight + "px";

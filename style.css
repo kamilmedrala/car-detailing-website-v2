@@ -196,14 +196,15 @@ header {
 }
 
 .header-bck{
+  top: 0;
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: inherit;
   overflow: hidden;
+  z-index: -1;
 }
 
 .header-bck img{
-  top: 0;
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -812,7 +813,7 @@ footer p {
     align-items: flex-end;
     height: 100vh;
     will-change: height;
-    transition: height 0.3s;
+    transition: height 0.5s;
   }
 
   .header-main {
