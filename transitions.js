@@ -1,4 +1,4 @@
-const anchors = document.querySelectorAll("a");
+const anchors = document.querySelectorAll(".onsite");
 const PageSlider = document.querySelector(".page__slider");
 
 PageSlider.addEventListener(
@@ -11,7 +11,6 @@ PageSlider.addEventListener(
 
 for (let i = 2; i < anchors.length; i++) {
   const anchor = anchors[i];
-  if (i != 5) {
     //to skip anchor for calling
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
@@ -38,7 +37,7 @@ for (let i = 2; i < anchors.length; i++) {
         false
       );
     });
-  }
+  
 }
 
 (function () {
