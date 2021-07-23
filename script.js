@@ -1,4 +1,6 @@
 // before and on load animations
+window.scrollTo(0,1);
+
 $(".logo").hide();
 $(".logo").fadeIn(200);
 $(".wrapper").hide();
