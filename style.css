@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -87,7 +89,8 @@ body {
   width: 100vw;
   background-color: rgb(25, 25, 25);
   overflow: overlay;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold !important;
 
   --text-main: rgb(220, 220, 220);
   --text-gold: rgb(211, 176, 89);
@@ -765,10 +768,6 @@ footer p {
 
 @media only screen and (max-device-width: 600px) {
 
-  *{
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-
   html{
     -webkit-overflow-scrolling: touch;
   }
@@ -869,6 +868,10 @@ footer p {
     backdrop-filter: blur(0px);
     clip-path: polygon(0% 101%, 101% 101%, 101% 101%, 0% 101%);
     transition: clip-path 0.6s;
+  }
+
+  .gallery .sidetext p {
+    margin: 20px;
   }
 
   .sidebox-animRight {
