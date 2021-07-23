@@ -21,10 +21,12 @@ function getPosts(token) {
       for (let i = 0; i < amount; i++) {
         let PostElement = document.createElement("div");
         PostElement.className = "gallery__insta-image show";
-        PostElement.style.backgroundImage =
-          "url" + "(" + post[i].media_url + ")";
+        PostElement.style.backgroundImage = "url" + "(" + post[i].media_url + ")";
         PostElement.innerHTML = "<p>" + post[i].caption + "</p>";
         document.getElementById("id_gallery__insta").appendChild(PostElement);
+        PostElement.addEventListener("click", function () {
+          window.open("https://www.instagram.com/pro_shine_autodetailing/", '_blank');
+        });
       }
     },
   });
@@ -33,9 +35,9 @@ var NextToShow = document.getElementsByClassName("show");
 var delay = 0;
 
 window.onload = function () {
-    for (let i = 0; i < amount; i++) {
-      NextToShow[i].style.animationDelay = delay + "ms";
-      delay = delay + 50;
-    }
-    delay = 0; 
+  for (let i = 0; i < amount; i++) {
+    NextToShow[i].style.animationDelay = delay + "ms";
+    delay = delay + 50;
+  }
+  delay = 0;
 };
