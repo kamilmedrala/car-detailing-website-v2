@@ -470,26 +470,17 @@ section {
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-
   flex-shrink: 0;
   background-image: url(resources/images/bifor.jpg);
   background-position: left;
   background-size: 100vw;
   clip-path: polygon(0% 0%, 0% 100%, 95% 100%, 100% 0);
-
   transition: width 0.1s;
 }
 
-
-
 .sidebox-animLeft {
   animation: slideFromLeft 0.6s ease-in-out;
-  /* clip-path: polygon(
-    0% 0%, 
-    0% 100%, 
-    95% 100%, 
-    100% 0
-    ); */
+
 }
 
 .slider__container .slider-right {
@@ -516,10 +507,8 @@ section {
 }
 
 .page-container.offer__page ul li {
-  /* width: 80%; */
   height: 50px;
   color: var(--text-main);
-  /* text-align: justify; */
   font-size: 18px;
   font-weight: lighter;
 }
@@ -803,7 +792,7 @@ footer p {
     padding-top:90px;
     background-color: var(--bck-main);
     clip-path: polygon(0% 0%, 101% 0%, 101% 0%, 0% 0%);
-    transition: clip-path 0.5s !important;
+    transition: clip-path 0.3s, transform 0.3s !important;
     box-shadow: 0 0 15px rgba(9, 9, 9, 0.8) ;
   }
   .hamburger-slide{
@@ -822,6 +811,8 @@ footer p {
     background-size: auto 120vh;
     align-items: flex-end;
     height: 100vh;
+    will-change: height;
+    transition: height 0.3s;
   }
 
   .header-main {
@@ -894,7 +885,6 @@ footer p {
   .slider {
     background-size: auto 100%;
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0);
-    /* transition: 0.2s; */
   }
 
   .slider__container .arrows {
@@ -913,11 +903,6 @@ footer p {
 
   .page-container.offer__page ul li {
     width: auto;
-    height: 50px;
-    color: var(--text-main);
-    /* text-align: justify; */
-    font-size: 18px;
-    font-weight: lighter;
   }
 
   .offer {
@@ -939,54 +924,10 @@ footer p {
     text-decoration: none;
   }
 
-  .page-container.gallery__page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-  }
-
-  .page-container.gallery__page h1 {
-    font-size: 40px;
-    font-weight: lighter;
-    /* width: 10%; */
-    padding: 5px;
-    color: var(--text-main);
-  }
-
-  .gallery__insta {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   .gallery__insta-image {
     flex: 0 0 150px;
     margin: 5px;
     height: 150px;
-    /* padding-top: 33%; */
-    /* border: 2px solid red; */
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0;
-  }
-
-  .gallery__insta-image p {
-    width: 100%;
-    height: 110%;
-    padding-top: 40%;
-    text-align: center;
-    color: var(--text-main);
-    backdrop-filter: blur(5px) brightness(50%);
-    opacity: 0;
-    transition: 0.3s;
-  }
-
-  .gallery__insta-image:hover p {
-    opacity: 100;
   }
 
   .contact {
