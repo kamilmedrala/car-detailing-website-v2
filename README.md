@@ -17,7 +17,7 @@ My first commercial website built for Pro Shine Car-Detailing studio.
 - jQuery
 - ScrollMagic JS library 
 - Instagram Graph API
-- PHP - for official release 
+- PHP - for Wordpress release 
 <br />
   
 Live demo: https://kamilmedrala.github.io/car-detailing-website-v2/
