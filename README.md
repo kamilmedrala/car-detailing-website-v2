@@ -1,7 +1,7 @@
 # car-detailing-website-v2
 
 **Update 18.08.2021**
-  Official website: https://proshinedetailing.pl/\
+  Official website: https://proshinedetailing.pl/
   \
  
   Project transformed to custom wordpress theme, with working article posting, gallery etc.
