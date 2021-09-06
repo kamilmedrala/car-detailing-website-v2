@@ -1,3 +1,9 @@
+/* 
+Theme: ProShine 
+Author: Kamil M
+*/
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 * {
@@ -5,6 +11,19 @@
   padding: 0;
   box-sizing: border-box;
 
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.appear-anim{
+  animation: appear 0.2s forwards;
 }
 
 @keyframes slideRight {
@@ -26,24 +45,6 @@
   to {
     clip-path: polygon(0% 0%, 0% 100%, 95% 100%, 100% 0);
     width: 50%;
-  }
-}
-
-@keyframes loaderscreen {
-  from {
-    filter: blur(0px);
-    -webkit-backdrop-filter: blur(10px) brightness(0.3);
-    backdrop-filter: blur(10px) brightness(0.3);
-    opacity: 1;
-  }
-
-  to {
-    filter: blur(10px);
-    -webkit-backdrop-filter: blur(0px) brightness(1);
-    backdrop-filter: blur(0px) brightness(1);
-    opacity: 0;
-    display: none;
-    visibility: hidden;
   }
 }
 
@@ -76,7 +77,7 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(85, 85, 85, 0.5);
+  background: rgba(85, 85, 85, 0.8);
   border-radius: 5px;
 }
 
@@ -115,8 +116,10 @@ body {
 
 .navbar-container {
   position: fixed;
-  display: none;
   z-index: 20;
+  opacity: 0;
+  animation: appear 0.3s ease-in-out forwards;
+  animation-delay: 0.5s;
 }
 
 .scrolling-active {
@@ -149,6 +152,7 @@ body {
   display: flex;
   list-style: none;
   text-align: center;
+  /* z-index: 30; */
 }
 
 #navbar-element{
@@ -189,6 +193,7 @@ header {
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+  max-height: 100vh !important;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -219,7 +224,7 @@ header {
   left: 0;
   width: 100%;
   height: 50%;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) , transparent);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) , transparent 50%);
 }
 
 
@@ -234,13 +239,9 @@ header {
   color: var(--text-main);
   overflow: hidden;
   clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%);
-  transition: 1s ease-in-out;
   flex-shrink: 0;
-}
-
-.sidebox-anim {
+  will-change: clip-path;
   animation: slideRight 0.7s forwards;
-  animation-delay: 0.6s;
 }
 
 .header-main h1 {
@@ -267,10 +268,18 @@ header {
   transition: opacity 0.3s;
 }
 
+.header-main__scroll{
+  position: absolute;
+  opacity: 0;
+  bottom: 10px;
+  left: 42.5%;
+  animation: appear 0.3s ease-in-out forwards;
+  animation-delay: 3s;
+}
+
 main {
   background-color: rgb(25, 25, 25);
   overflow: hidden;
-  height: 0;
   transition: filter 0.3s;
 }
 
@@ -421,14 +430,24 @@ section {
   -webkit-user-drag: none;
   z-index: -1;
   user-select: none;
-  filter: invert(90%);
-  height: 50px;
+  /* filter: invert(90%); */
+  height: 30px;
   transition: transform 0.2s;
 
 }
 
 #arrow-right,#gallery__arrow-right {
-  transform: rotate(180deg);
+  transform: rotate(270deg);
+}
+#gallery__arrow-right:hover{
+  transform: scale(1.1) rotate(270deg);
+}
+
+#arrow-left,#gallery__arrow-left {
+  transform: rotate(90deg);
+}
+#gallery__arrow-left:hover{
+  transform: scale(1.1) rotate(90deg);
 }
 
 .gallery .arrows{
@@ -439,12 +458,8 @@ section {
   left: 0;
 }
 
-#gallery__arrow-left:hover{
-  transform: scale(1.1);
-}
-#gallery__arrow-right:hover{
-  transform: scale(1.1) rotate(180deg);
-}
+
+
 
 .gallery .sidetext p {
   min-width: 40vw;
@@ -460,20 +475,21 @@ section {
   align-items: center;
   height: 50vh;
   width: 100vw;
-  background-image: url(../resources/images/after.jpg);
+  background-image: url(../resources/images/final/before.jpeg);
   background-position: right;
   background-size: 100vw;
   cursor: w-resize;
 }
 
 .slider {
+  filter: brightness(101%);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 100%;
   flex-shrink: 0;
-  background-image: url(../resources/images/bifor.jpg);
-  background-position: left;
+  background-image: url(../resources/images/final/after.jpeg);
+  background-position: 2px 50.1%;
   background-size: 100vw;
   clip-path: polygon(0% 0%, 0% 100%, 95% 100%, 100% 0);
   transition: width 0.1s;
@@ -482,10 +498,6 @@ section {
 .sidebox-animLeft {
   animation: slideFromLeft 0.6s ease-in-out;
 
-}
-
-.slider__container .slider-right {
-  width: 0%;
 }
 
 .page-container.offer__page {
@@ -532,6 +544,7 @@ display: none;
   justify-content: space-between;
   align-items: center;
   width: 30%;
+  min-height: 300px;
   height: 80vh;
   background-color: rgb(39, 39, 39);
   overflow: hidden;
@@ -550,26 +563,26 @@ display: none;
 }
 
 .card:nth-of-type(1) .card__image {
-  background-image: url(../resources/images/zac-nielson-q94A6k81lAQ-unsplash.jpg);
+  background-image: url(../resources/images/final/powloka1.jpeg);
+  background-position: center;
 }
 
 .card:nth-of-type(2) .card__image {
-  background-image: url(../resources/images/share-now-yjw5O0OY0tw-unsplash.jpg);
+  background-image: url(../resources/images/final/dodge_interior.JPG);
 }
 
 .card:nth-of-type(3) .card__image {
-  background-image: url(../resources/images/vlad-grebenyev-7eCBiZgyr4E-unsplash.jpg);
+  background-image: url(../resources/images/final/rs6wheel.jpeg);
 }
 
 .card .description {
   position: relative;
-  padding: 15px;
+  padding: 0 5px;
   height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
 }
 
 .card .description ul li {
@@ -627,9 +640,13 @@ display: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  /* border: 2px solid grey */
 }
 
 .gallery__insta-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 270px;
   margin: 30px;
   height: 270px;
@@ -637,20 +654,24 @@ display: none;
   /* border: 2px solid red; */
   background-position: center;
   background-size: cover;
-  overflow: hidden;
   cursor: pointer;
   opacity: 0;
 }
 
 .gallery__insta-image p {
   width: 100%;
-  height: 110%;
-  padding-top: 40%;
+  height: 100%;
+  padding: 5px;
   text-align: center;
   color: var(--text-main);
   backdrop-filter: blur(5px) brightness(50%);
   opacity: 0;
   transition: 0.3s;
+  overflow: scroll;
+}
+
+.gallery__insta-image p::-webkit-scrollbar:horizontal{
+  display: none;
 }
 
 .gallery__insta-image:hover p {
@@ -659,6 +680,7 @@ display: none;
 
 .contact {
   display: flex;
+  min-height: 300px;
   height: 50vh;
 }
 
@@ -683,18 +705,24 @@ display: none;
 .contact__main-content {
   display: flex;
   justify-content: space-around;
-  width: 80%;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 15px;
+  flex-basis: 300px;
+}
+
+
+.contact__main-content .address {
+  width: 300px;
+  font-weight: lighter;
+  /* width: 70%; */
 }
 
 .contact__main-content .telephone {
-  padding-bottom: 10px;
-}
-
-.contact__main-content .address {
-  /* font-size: 40px; */
-  font-weight: lighter;
-  width: 70%;
+  text-decoration: none;
+  padding-bottom: 20px;
+  font-size: 20px;
+  
 }
 
 .contact__main-content .socials {
@@ -702,7 +730,7 @@ display: none;
   justify-content: space-around;
   align-items: center;
   width: 200px;
-  height: 100%;
+  /* height: 40%; */
 }
 
 .contact__main-content .socials img {
@@ -807,6 +835,10 @@ footer p {
     line-height: 50px;
   }
 
+  .header-bck img{
+    object-position: 95%;
+  }
+
   header {
     background-attachment: scroll;
     background-size: auto 120vh;
@@ -821,11 +853,7 @@ footer p {
     height: 40vh;
     backdrop-filter: blur(3px);
     background-color: rgb(29, 29, 29, 0.7);
-  }
-
-  .sidebox-anim {
     animation: slideTop 0.7s forwards;
-    animation-delay: 0.6s;
   }
 
   section {
@@ -880,16 +908,15 @@ footer p {
     margin-top: 70px;
     height: 25vh;
     background-position: left;
-    background-size: auto 100%;
+    background-size: 100vw;
   }
 
   .slider {
-    background-size: auto 100%;
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0);
   }
 
   .slider__container .arrows {
-    left: -12.5%;
+    left: -16%;
   }
 
   
@@ -913,6 +940,7 @@ footer p {
 
   .offer .card {
     width: 80%;
+    min-height: 350px;
     height: 50vh;
     margin-top: 50px;
   }

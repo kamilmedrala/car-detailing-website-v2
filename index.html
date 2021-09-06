@@ -11,9 +11,9 @@
   </head>
   <body onclick>
     
-    <div class="loader anim_delay">
+    <!-- <div class="loader">
       <img class="logo" src="resources/images/Logo_transparent.png" alt="" />
-    </div>
+    </div> -->
     <div class="page__slider"></div>
 
     <div class="wrapper">
@@ -39,9 +39,12 @@
       </div>
       <header>
         <div class="header-bck">
-          <img decoding="sync" src="resources/images/RSZTbrad-starkey-W5yX_dPokH4-unsplas.jpg" alt="background">
+          <picture>
+            <source media="(min-width:600px)" srcset="resources/images/bck-full.jpg">
+            <img src="resources/images/bck-mobile.jpg" alt="background">
+          </picture>
         </div>
-        <div class="header-main anim_delay">
+        <div class="header-main">
           <div class="header-main__text">
             <h1>Pro Shine</h1>
             <div class="list-container">
@@ -54,6 +57,9 @@
               </ul>
             </div>
           </div>
+          <a class="header-main__scroll" href="#about">
+            <img src="resources/images/scroll_arrow_btm.png" height="30px" title="scroll down">
+          </a>
         </div>
       </header>
 
@@ -87,28 +93,30 @@
 
         <section class="gallery">
           <div class="arrows">
-            <img id="gallery__arrow-left" src="resources/images/left-arrow-back-svgrepo-com.svg" alt="" />
-            <img id="gallery__arrow-right" src="resources/images/left-arrow-back-svgrepo-com.svg" alt="" />
+            <img id="gallery__arrow-left" src="resources/images/scroll_arrow_btm.png" alt="" />
+            <img id="gallery__arrow-right" src="resources/images/scroll_arrow_btm.png" alt="" />
           </div>
           <div class="gallery-images" id="gallery-images">
-            <img class="gallery-image" id="1" src="resources/images/cupra1.jpg" />
-            <img class="gallery-image" id="2" src="resources/images/vlad-grebenyev-7eCBiZgyr4E-unsplash.jpg" />
-            <img class="gallery-image" id="3" src="resources/images/brad-starkey-W5yX_dPokH4-unsplas.jpg" />
-            <img class="gallery-image" id="4" src="resources/images/patrik-storm-alstra-pictures-eDyallVm_8A-unsplash.jpg" />
+            <img class="gallery-image" id="1" src="resources/images/final/rs6side.jpeg" />
+            <img class="gallery-image" id="2" src="resources/images/final/interiorskoda2.jpeg" />
+            <img class="gallery-image" id="3" src="resources/images/final/169022798_199100561695103_6917667810061194664_n.jpg" />
+            <img class="gallery-image" id="4" src="resources/images/final/corolla.jpeg" />
+            <img class="gallery-image" id="5" src="resources/images/final/interiorbmw2.jpeg" />
+            <img class="gallery-image" id="6" src="resources/images/final/dodge2.JPG" />
           </div>
           <div class="sidetext">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, velit rerum nam fugiat nisi obcaecati beatae laudantium adipisci
-              exercitationem architecto!
+              Nasze usługi wykonujemy również na samochodach ciężarowych, motocyklach i innych pojazdach.
+              
             </p>
-            <a href="./galeria.html" class="card__button onsite">Galeria</a>
+            <a href="./galeria.html" class="card__button onsite">Zobacz Galerię</a>
           </div>
         </section>
         <section class="slider__container" id="slider__section">
           <div class="slider" id="slide"></div>
           <div class="arrows">
-            <img id="arrow-left" src="resources/images/left-arrow-back-svgrepo-com.svg" alt="" />
-            <img id="arrow-right" src="resources/images/left-arrow-back-svgrepo-com.svg" alt="" />
+            <img id="arrow-left" src="resources/images/scroll_arrow_btm.png" alt="" />
+            <img id="arrow-right" src="resources/images/scroll_arrow_btm.png" alt="" />
           </div>
         </section>
         <section class="offer">
@@ -152,8 +160,12 @@
               <div class="address">
                 <div class="telephone">
                   <p>
-                    Tel:
-                    <a class="call" href="tel:531545422">531 545 422</a>
+                    <img src="resources/logos/Mobile-Phone-icon.png" width="30px" style="transform: translateY(5px); filter: invert(40%);">
+                    <a class="call" href="tel:531545422"> 531 545 422</a>
+                  </p>
+                  <p>
+                    <img src="resources/logos/Email-icon.png" width="30px" style="transform: translateY(8px);">
+                    <a class="call" href="mailto:kontaktproshine@gmail.com">kontaktproshine@gmail.com</a>
                   </p>
                 </div>
                 <p>

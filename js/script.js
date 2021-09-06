@@ -1,53 +1,17 @@
-// before and on load animations
-
-$(".logo").hide();
-$(".logo").fadeIn(200);
-$(".wrapper").hide();
-$(".wrapper").fadeIn(400);
-$(".navbar").hide();
-
-window.onload = function () {
-  var LoadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
-  var wrapMain = document.querySelector("main");
+window.addEventListener("DOMContentLoaded", () => {
   var header = document.querySelector("header");
 
   if (screen.width <= 600) {
     header.style.height = window.innerHeight + "px";
   }
 
-  console.log("Page load time is " + LoadTime);
-  $(".loader").delay(500).fadeOut(600);
-  $(".header-main").addClass("sidebox-anim");
-  $(".navbar-container").delay(0).show();
-  $(".navbar").delay(1200).fadeIn();
+  if (window.location.href.indexOf("about") > 0) {
+    window.location.href = "./#about";
+  }
 
-  $("main")
-    .delay(1500)
-    .queue(function (next) {
-      $(this).css("height", "auto");
-      $("footer").css("height", "50px");
+  var list = document.getElementById("list");
 
-      //navbar about redirect delay if from other page
-      if (window.location.href.indexOf("about") > 0 && wrapMain.style.height == "auto") {
-        window.location.href = "./#about";
-      }
-      next();
-    });
-
-  $(".list-container ul").delay(0).hide();
-  $(".list-container").delay().hide();
-  $(".list-container").delay(1500).slideDown("fast");
-  myLoop();
-};
-
-//listing under header h1
-
-var list = document.getElementById("list");
-var i = 0;
-
-function myLoop() {
-  setInterval(function () {
-    $("#list").delay(0).fadeIn(200);
+  function listLoop() {
     list.firstElementChild.style.opacity = 1;
 
     setTimeout(function () {
@@ -56,17 +20,16 @@ function myLoop() {
 
     setTimeout(function () {
       list.appendChild(list.firstElementChild);
-    }, 2000),
-      i++;
-    if (i == 5) {
-      i = 0;
-    }
+    }, 2000);
+  }
+
+  listLoop();
+
+  setInterval(function () {
+    listLoop();
   }, 2100);
-}
+});
 
-//on scroll animations
-
-//navbar
 window.addEventListener("scroll", () => {
   let nav = document.querySelector(".navbar");
   let logo = document.querySelector(".logo-image");
@@ -88,21 +51,18 @@ window.addEventListener("scroll", () => {
     navelements[2].style.transform = "translateY(0)";
   }
 
-  //header parallax
-  const bck = document.querySelector(".header-bck img");
+  const bck = document.querySelector(".header-bck");
   var BckPosition = window.scrollY / 20 + "%";
 
-  // bck.style.transform = "translateY(" + BckPosition + ")";
   bck.style.webkitTransform = "translateY(" + BckPosition + ")";
 });
 
-//other
-var NextToShow = document.getElementsByClassName("show"); //used by logos & offer cards
+var NextToShow = document.getElementsByClassName("show");
 var delay = 0;
 
 var controller = new ScrollMagic.Controller();
 
-//logos
+
 var LogoScene = new ScrollMagic.Scene({
   triggerElement: ".logos",
   offset: -170,
@@ -118,7 +78,6 @@ var LogoScene = new ScrollMagic.Scene({
   .reverse(false)
   .addTo(controller);
 
-//slide on gallery
 
 var SlideScene = new ScrollMagic.Scene({
   triggerElement: ".gallery",
@@ -128,7 +87,7 @@ var SlideScene = new ScrollMagic.Scene({
   .reverse(false)
   .addTo(controller);
 
-//offer
+  
 var OfferScene = new ScrollMagic.Scene({
   triggerElement: ".offer",
   offset: -100,
