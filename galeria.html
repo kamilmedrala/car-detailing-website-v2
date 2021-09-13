@@ -10,25 +10,25 @@
     <link rel="stylesheet" href="css/hamburger.css">
   </head>
   <body onclick>
-    <div class="page__slider is-ending"></div>
-    <div class="wrapper">
-      <div class="navbar-container" style="display: block">
-        <nav class="navbar" style="transform: translateY(-30px)">
-          <a href="./" class="logo onsite" id="navbar-element" style="transform: translateY(15px) scale(0.7)">
-            <img class="logo-image" style="height: 90px; " src="resources/images/Logo_transparent.png" alt="logo" title="Strona główna" />
+    <div id="page_slider" class="is-ending"></div>
+    <div id="wrapper">
+      <div id="navbar-container" style="display: block">
+        <nav id="navbar" data-js="navbar" style="transform: translateY(-30px)">
+          <a href="./" id="logo" data-js="anchor" data-js-navbar="element" style="transform: translateY(15px) scale(0.7)">
+            <img id="logo-image" data-js="logo-image" style="height: 90px; " src="resources/images/Logo_transparent.png" alt="logo" title="Strona główna" />
           </a>
-          <div class="box" id="navbar-element" style="transform: translateY(15px)">
+          <div class="box" data-js-navbar="element" style="transform: translateY(15px)">
             <div class="btn not-active">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
-          <ul id="navbar-element" style="transform: translateY(15px)">
-            <li><a href="./#about" class="navbar-anchor onsite">O nas</a></li>
-            <li><a href="./oferta.html" class="navbar-anchor onsite">oferta</a></li>
-            <li><a href="./galeria.html" class="navbar-anchor onsite">realizacje</a></li>
-            <li><a href="./kontakt.html" class="navbar-anchor onsite">kontakt</a></li>
+          <ul data-js-navbar="list" data-js="navbar-list" style="transform: translateY(15px)" >
+            <li><a href="./#about" data-js="anchor">O nas</a></li>
+            <li><a href="./oferta.html" data-js="anchor">oferta</a></li>
+            <li><a href="./galeria.html" data-js="anchor">realizacje</a></li>
+            <li><a href="./kontakt.html" data-js="anchor">kontakt</a></li>
           </ul>
         </nav>
       </div>
@@ -36,19 +36,19 @@
         style="
           height: auto;
           background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 20%, rgba(255, 255, 255, 0) 50%),
-            url(resources/images/RSZTbrad-starkey-W5yX_dPokH4-unsplas.jpg);
+          url(resources/images/bck-mobile.jpg);
           background-position: center;
           background-size: cover;
         "
       >
         <div class="page">
-          <div class="page-container gallery__page">
-            <h1>Galeria</h1>
-            <div class="gallery__insta" id="id_gallery__insta"></div>
+          <div class="page-container" id="gallery__page">
+            <h1>Instagram</h1>
+            <div id="gallery__insta" data-js="gallery__insta-container"></div>
           </div>
         </div>
       </main>
-      <footer style="height: 50px">
+      <footer>
         <p>© 2021 ProShine</p>
         <p>Wykonanie: km</p>
       </footer>

@@ -31,9 +31,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("scroll", () => {
-  let nav = document.querySelector(".navbar");
-  let logo = document.querySelector(".logo-image");
-  let navelements = document.querySelectorAll("#navbar-element");
+  let nav = document.querySelector('[data-js="navbar"]');
+  let logo = document.querySelector('[data-js="logo-image"]');
+  let navelements = document.querySelectorAll("[data-js-navbar]");
   let WindowScroll = window.scrollY > 100;
 
   nav.classList.toggle("scrolling-active", WindowScroll);
@@ -51,7 +51,7 @@ window.addEventListener("scroll", () => {
     navelements[2].style.transform = "translateY(0)";
   }
 
-  const bck = document.querySelector(".header-bck");
+  const bck = document.querySelector('[data-js="header-bck"]');
   var BckPosition = window.scrollY / 20 + "%";
 
   bck.style.webkitTransform = "translateY(" + BckPosition + ")";
@@ -62,9 +62,8 @@ var delay = 0;
 
 var controller = new ScrollMagic.Controller();
 
-
 var LogoScene = new ScrollMagic.Scene({
-  triggerElement: ".logos",
+  triggerElement: "#logos",
   offset: -170,
 })
   .on("start", function fadeDelay() {
@@ -74,22 +73,20 @@ var LogoScene = new ScrollMagic.Scene({
     }
     delay = 0;
   })
-  .setClassToggle(".logos img", "show")
+  .setClassToggle("#logos img", "show")
   .reverse(false)
   .addTo(controller);
-
 
 var SlideScene = new ScrollMagic.Scene({
-  triggerElement: ".gallery",
+  triggerElement: "#gallery",
   offset: -50,
 })
-  .setClassToggle(".gallery .sidetext", "sidebox-animRight")
+  .setClassToggle("#gallery #sidetext", "sidebox-animRight")
   .reverse(false)
   .addTo(controller);
 
-  
 var OfferScene = new ScrollMagic.Scene({
-  triggerElement: ".offer",
+  triggerElement: "#offer",
   offset: -100,
 })
   .on("start", function fadeDelay() {
@@ -100,6 +97,6 @@ var OfferScene = new ScrollMagic.Scene({
     delay = 0;
     j = 0;
   })
-  .setClassToggle(".offer .card", "show")
+  .setClassToggle("#offer .card", "show")
   .reverse(false)
   .addTo(controller);

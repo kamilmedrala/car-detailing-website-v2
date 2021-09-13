@@ -1,12 +1,9 @@
-//slide on comparison slider
-
-var slide = document.getElementById("slide");
-var posX=0;
+var slide = document.querySelector('[data-js="slider"]');
+var posX = 0;
 
 var ComparisonScene = new ScrollMagic.Scene({
-  triggerElement: ".slider__container",
-  offset: -100,
-
+  triggerElement: "#slider__container",
+  offset: -200,
 })
   .on("start", function whenAnimEnd() {
     slide.addEventListener("animationend", function sliding() {
@@ -20,22 +17,19 @@ var ComparisonScene = new ScrollMagic.Scene({
           slide.style.width = 50 + "%";
         }
       });
-      SliderSection.addEventListener("touchmove", (t)=> {
-        // var posX = t.touches[0].clientX;
+      SliderSection.addEventListener("touchmove", (t) => {
         var posX2 = t.touches[0].clientX;
-        console.log(posX2);
         slide.style.width = posX2 + "px";
-      })
+      });
     });
   })
-  .setClassToggle(".slider", "sidebox-animLeft")
+  .setClassToggle("#slider", "sidebox-animLeft")
   .reverse(false)
   .addTo(controller);
 
-//comparison slider state
-
 var inside = false;
-var SliderSection = document.getElementById("slider__section");
+var SliderSection = document.getElementById("slider__container");
+
 SliderSection.addEventListener("mouseenter", function () {
   inside = true;
 });

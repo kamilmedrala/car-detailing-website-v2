@@ -8,8 +8,7 @@ var ready = true;
 var offset = 50;
 if (screen.width <= 600) {
   offset = 100;
-}
-else{
+} else {
   offset = 50;
 }
 
@@ -35,9 +34,8 @@ rightBtn.addEventListener("click", () => {
   if (ready) {
     if (selectedOrder == -1) {
       if (offset == 50) {
-        images.prepend(image[2],image[3]);
-      }
-      else{
+        images.prepend(image[image.length - 2], image[image.length - 1]);
+      } else {
         images.prepend(image[3]);
       }
       selectedOrder = 1;
@@ -51,11 +49,9 @@ rightBtn.addEventListener("click", () => {
 leftBtn.addEventListener("click", () => {
   if (ready) {
     if (selectedOrder == 1) {
-      
       if (offset == 50) {
-        images.append(image[0],image[1]);
-      }
-      else{
+        images.append(image[0], image[1]);
+      } else {
         images.append(image[0]);
       }
       selectedOrder = -1;

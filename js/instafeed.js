@@ -10,6 +10,10 @@ $.ajax({
   },
 });
 
+function afterLoad(callback) {
+  callback();
+}
+
 function getPosts(token) {
   $.ajax({
     url: `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token=${token}`,
@@ -20,24 +24,41 @@ function getPosts(token) {
       let post = response.data;
       for (let i = 0; i < amount; i++) {
         let PostElement = document.createElement("div");
-        PostElement.className = "gallery__insta-image show";
+        PostElement.className = "gallery__insta-image";
         PostElement.style.backgroundImage = "url" + "(" + post[i].media_url + ")";
         PostElement.innerHTML = "<p>" + post[i].caption + "</p>";
-        document.getElementById("id_gallery__insta").appendChild(PostElement);
+        document.querySelector('[data-js="gallery__insta-container"]').appendChild(PostElement);
         PostElement.addEventListener("click", function () {
-          window.open("https://www.instagram.com/pro_shine_autodetailing/", '_blank');
+          window.open("https://www.instagram.com/pro_shine_autodetailing/", "_blank");
         });
       }
+      afterLoad(PostDelay);
     },
   });
 }
-var NextToShow = document.getElementsByClassName("show");
+
 var delay = 0;
 
-window.onload = function () {
-  for (let i = 0; i < amount; i++) {
-    NextToShow[i].style.animationDelay = delay + "ms";
-    delay = delay + 50;
-  }
-  delay = 0;
-};
+function PostDelay() {
+  var NextToShowIg = document.getElementsByClassName("gallery__insta-image");
+
+  var controller = new ScrollMagic.Controller();
+
+  console.log("loaded!");
+
+  var InstaGalleryScene = new ScrollMagic.Scene({
+    triggerElement: ".gallery__insta",
+    offset: -50,
+  })
+    .on("start", function fadeDelay() {
+      for (let j = 0; j < NextToShowIg.length; j++) {
+        NextToShowIg[j].style.animationDelay = delay + "ms";
+        delay = delay + 100;
+      }
+      delay = 0;
+      j = 0;
+    })
+    .setClassToggle(".gallery__insta-image", "show")
+    .reverse(false)
+    .addTo(controller);
+}

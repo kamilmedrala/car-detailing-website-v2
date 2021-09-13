@@ -11,43 +11,40 @@
   </head>
   <body onclick>
     
-    <!-- <div class="loader">
-      <img class="logo" src="resources/images/Logo_transparent.png" alt="" />
-    </div> -->
-    <div class="page__slider"></div>
+    <div id="page_slider"></div>
 
-    <div class="wrapper">
-      <div class="navbar-container">
-        <nav class="navbar">
-          <a href="#" class="logo onsite" id="navbar-element">
-            <img class="logo-image" src="resources/images/Logo_transparent.png" alt="logo" title="Strona główna" />
+    <div id="wrapper">
+      <div id="navbar-container">
+        <nav id="navbar" data-js="navbar">
+          <a href="#" id="logo" data-js="anchor" data-js-navbar="element">
+            <img id="logo-image" data-js="logo-image" src="resources/images/Logo_transparent.png" alt="logo" title="Strona główna" />
           </a>
-          <div class="box" id="navbar-element">
+          <div class="box" data-js-navbar="element">
             <div class="btn not-active">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
-          <ul id="navbar-element">
-            <li><a href="#about" class="navbar-anchor onsite">O nas</a></li>
-            <li><a href="./oferta.html" class="navbar-anchor onsite">oferta</a></li>
-            <li><a href="./galeria.html" class="navbar-anchor onsite">realizacje</a></li>
-            <li><a href="./kontakt.html" class="navbar-anchor onsite">kontakt</a></li>
+          <ul data-js-navbar="list">
+            <li><a href="#about" data-js="anchor">O nas</a></li>
+            <li><a href="./oferta.html" data-js="anchor">oferta</a></li>
+            <li><a href="./galeria.html" data-js="anchor">realizacje</a></li>
+            <li><a href="./kontakt.html" data-js="anchor">kontakt</a></li>
           </ul>
         </nav>
       </div>
       <header>
-        <div class="header-bck">
+        <div id="header-bck" data-js="header-bck">
           <picture>
             <source media="(min-width:600px)" srcset="resources/images/bck-full.jpg">
             <img src="resources/images/bck-mobile.jpg" alt="background">
           </picture>
         </div>
-        <div class="header-main">
-          <div class="header-main__text">
+        <div id="header-main">
+          <div id="header-main__text">
             <h1>Pro Shine</h1>
-            <div class="list-container">
+            <div id="list-container">
               <ul id="list">
                 <li class="list-element">Auto Detailing</li>
                 <li class="list-element">Korekty lakieru</li>
@@ -57,7 +54,7 @@
               </ul>
             </div>
           </div>
-          <a class="header-main__scroll" href="#about">
+          <a id="header-main__scroll" href="#about">
             <img src="resources/images/scroll_arrow_btm.png" height="30px" title="scroll down">
           </a>
         </div>
@@ -73,7 +70,7 @@
           </p>
         </section>
 
-        <section class="logos">
+        <section id="logos">
           <img src="resources/logos/optimum-polymer-technologies-13.png" alt="" />
           <img src="resources/logos/adbl-logo.png" alt="" />
           <img src="resources/logos/lakecountry.png" alt="" />
@@ -91,36 +88,36 @@
           </p>
         </section>
 
-        <section class="gallery">
-          <div class="arrows">
+        <section id="gallery">
+          <div id="arrows">
             <img id="gallery__arrow-left" src="resources/images/scroll_arrow_btm.png" alt="" />
             <img id="gallery__arrow-right" src="resources/images/scroll_arrow_btm.png" alt="" />
           </div>
-          <div class="gallery-images" id="gallery-images">
-            <img class="gallery-image" id="1" src="resources/images/final/rs6side.jpeg" />
-            <img class="gallery-image" id="2" src="resources/images/final/interiorskoda2.jpeg" />
-            <img class="gallery-image" id="3" src="resources/images/final/169022798_199100561695103_6917667810061194664_n.jpg" />
-            <img class="gallery-image" id="4" src="resources/images/final/corolla.jpeg" />
-            <img class="gallery-image" id="5" src="resources/images/final/interiorbmw2.jpeg" />
-            <img class="gallery-image" id="6" src="resources/images/final/dodge2.JPG" />
+          <div id="gallery-images">
+            <img class="gallery-image" src="resources/images/final/rs6side.jpeg" />
+            <img class="gallery-image" src="resources/images/final/interiorskoda2.jpeg" />
+            <img class="gallery-image" src="resources/images/final/169022798_199100561695103_6917667810061194664_n.jpg" />
+            <img class="gallery-image" src="resources/images/final/corolla.jpeg" />
+            <img class="gallery-image" src="resources/images/final/interiorbmw2.jpeg" />
+            <img class="gallery-image" src="resources/images/final/dodge2.JPG" />
           </div>
-          <div class="sidetext">
+          <div id="sidetext">
             <p>
               Nasze usługi wykonujemy również na samochodach ciężarowych, motocyklach i innych pojazdach.
               
             </p>
-            <a href="./galeria.html" class="card__button onsite">Zobacz Galerię</a>
+            <a href="./galeria.html" class="card__button" data-js="anchor">Zobacz Galerię</a>
           </div>
         </section>
-        <section class="slider__container" id="slider__section">
-          <div class="slider" id="slide"></div>
-          <div class="arrows">
+        <section id="slider__container">
+          <div id="slider" data-js="slider"></div>
+          <div id="arrows">
             <img id="arrow-left" src="resources/images/scroll_arrow_btm.png" alt="" />
             <img id="arrow-right" src="resources/images/scroll_arrow_btm.png" alt="" />
           </div>
         </section>
-        <section class="offer">
-          <div class="card" id="outside">
+        <section id="offer">
+          <div class="card">
             <div class="card__image"></div>
             <div class="description">
               <ul>
@@ -129,9 +126,9 @@
                 <li>Renowacje reflektorów samochodowych</li>
               </ul>
             </div>
-            <a href="./oferta.html" class="card__button onsite">Szczegóły</a>
+            <a href="./oferta.html" class="card__button" data-js="anchor">Szczegóły</a>
           </div>
-          <div class="card" id="inside">
+          <div class="card">
             <div class="card__image"></div>
             <div class="description">
               <ul>
@@ -139,9 +136,9 @@
                 <li>Zabezpieczanie wnętrza samochodu</li>
               </ul>
             </div>
-            <a href="./oferta.html" class="card__button onsite">Pełna Oferta</a>
+            <a href="./oferta.html" class="card__button" data-js="anchor">Pełna Oferta</a>
           </div>
-          <div class="card" id="other">
+          <div class="card">
             <div class="card__image"></div>
             <div class="description">
               <ul>
@@ -149,14 +146,14 @@
                 <li>Mycie pojazdów, przygotowanie aut do sprzedaży</li>
               </ul>
             </div>
-            <a href="./oferta.html" class="card__button onsite">Dowiedz się więcej</a>
+            <a href="./oferta.html" class="card__button" data-js="anchor">Dowiedz się więcej</a>
           </div>
-          <a href="./oferta.html" class="card__button onsite">Oferta</a>
+          <a href="./oferta.html" class="card__button" data-js="anchor">Oferta</a>
         </section>
-        <section class="contact">
-          <div class="contact__main">
+        <section id="contact">
+          <div id="contact__main">
             <h1>Kontakt</h1>
-            <div class="contact__main-content">
+            <div id="contact__main-content">
               <div class="address">
                 <div class="telephone">
                   <p>
