@@ -299,6 +299,10 @@ section {
   color: var(--text-gold);
 }
 
+img {
+  -webkit-user-drag: none;
+}
+
 #logos {
   margin: 0 auto 70px auto;
   width: 70vw;
